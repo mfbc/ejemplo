@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Solicitud;
+use App\Models\Carta;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Relation::enforceMorphMap([
+            'carta' => Carta::class,
+            'solicitud' => Solicitud::class,
+        ]);
     }
 
     /**

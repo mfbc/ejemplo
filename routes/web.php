@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('cartas', function () {
+    $cartas = \App\Models\Carta::all();
+    return view('cartas', compact('cartas'));
+});
+
+Route::get('solicitudes', function () {
+    $solicitudes = \App\Models\Solicitud::all();
+    return view('solicitudes', compact('solicitudes'));
+});
+Route::get('/adjuntos/{adjunto}', function (App\Models\Adjunto $adjunto) {
+    return $adjunto;
 });

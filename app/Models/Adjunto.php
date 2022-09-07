@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Adjunto extends Model
+{
+    use HasFactory;
+
+    public function downloadable()
+    {
+        return $this->morphTo();
+    }
+}
